@@ -9,12 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@imagekit/next": "^2.1.2",
     "@types/bcryptjs": "^2.4.6",
     "bcryptjs": "^3.0.2",
-    "mongoose": "^8.16.2",
-    "next": "15.3.5",
+    "hls.js": "^1.6.12",
+    "mongoose": "^8.16.5",
+    "next": "^15.4.1",
+    "next-auth": "^4.24.11",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "video.js": "^8.23.4"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
