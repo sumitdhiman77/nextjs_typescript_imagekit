@@ -20,7 +20,7 @@ class ApiClient {
     };
 
     const response = await fetch(
-      `https://yourvideoworld.vercel.app//${endpoint}`,
+      `https://yourvideoworld.vercel.app/${endpoint}`,
       {
         method,
         headers: defaultHeaders,
