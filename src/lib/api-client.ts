@@ -1,4 +1,5 @@
 import { IVideo } from "../models/Video";
+
 export type VideoFormData = Omit<IVideo, "_id">;
 
 type FetchOptions = {
@@ -14,22 +15,17 @@ class ApiClient {
   ): Promise<T> {
     const { method = "GET", body, headers = {} } = options;
 
-    const defaultHeaders = {
-      "Content-Type": "application/json",
-      ...headers,
-    };
-
-    const response = await fetch(
-      `https://yourvideoworld.vercel.app/${endpoint}`,
-      {
-        method,
-        headers: defaultHeaders,
-        body: body ? JSON.stringify(body) : undefined,
-      }
-    );
+    const response = await fetch(`/${endpoint}`, {
+      method,
+      headers: {
+        "Content-Type": "application/json",
+        ...headers,
+      },
+      body: body ? JSON.stringify(body) : undefined,
+      credentials: "include", // 🔥 REQUIRED for auth
+    });
 
     if (!response.ok) {
-      console.log(response);
       throw new Error(await response.text());
     }
 
@@ -37,11 +33,11 @@ class ApiClient {
   }
 
   async getVideos(): Promise<IVideo[]> {
-    return this.fetch("videos");
+    return this.fetch("api/videos");
   }
 
   async createVideo(videoData: VideoFormData): Promise<IVideo> {
-    return this.fetch("videos", {
+    return this.fetch("api/videos", {
       method: "POST",
       body: videoData,
     });
