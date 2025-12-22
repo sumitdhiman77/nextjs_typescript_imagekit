@@ -6,6 +6,7 @@ const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
+import Navbar from "./components/navbar";
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -14,7 +15,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "🎬 Your Video World | Upload videos and enjoy",
-  description: "Upload your video & show to the World",
+  description: "Just Upload & show to the World",
 };
 
 export default function RootLayout({
@@ -27,7 +28,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Providers>{children}</Providers>
+        <Providers>
+          <Navbar />
+          {children}
+        </Providers>
       </body>
     </html>
   );
