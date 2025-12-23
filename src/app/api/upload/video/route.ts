@@ -30,10 +30,10 @@ export async function POST(request: Request) {
       );
     }
 
-    // 3. Optional: Add a server-side size check (e.g., 50MB)
-    if (file.size > 50 * 1024 * 1024) {
+    // 3. Optional: Add a server-side size check (e.g., 10MB)
+    if (file.size > 10 * 1024 * 1024) {
       return NextResponse.json(
-        { error: "File is too large (Max 50MB)" },
+        { error: "File is too large (Max 10MB)" },
         { status: 400 }
       );
     }

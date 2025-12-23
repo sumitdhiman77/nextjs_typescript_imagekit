@@ -7,9 +7,6 @@ export const nextConfig: NextConfig = {
       bodySizeLimit: "50mb", // Set this to your MAX_FILE_SIZE
     },
   },
-  api: {
-    bodyParser: false,
-  },
 };
 
 export default nextConfig;

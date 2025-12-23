@@ -6,6 +6,7 @@ const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
+import { Toaster } from "sonner";
 import Navbar from "./components/navbar";
 
 const geistMono = Geist_Mono({
@@ -31,6 +32,7 @@ export default function RootLayout({
         <Providers>
           <Navbar />
           <main className="min-h-screen bg-black">{children}</main>
+          <Toaster richColors position="top-center" />
         </Providers>
       </body>
     </html>
